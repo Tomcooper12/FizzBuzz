@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator\IFizzBuzzCalculator.cs" />
-    <Compile Include="FizzBuzzApp.cs" />
+    <Compile Include="FizzBuzzProcessor.cs" />
     <Compile Include="Calculator\FizzBuzzCalculator.cs" />
+    <Compile Include="Output\IOutput.cs" />
+    <Compile Include="Output\Outputter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

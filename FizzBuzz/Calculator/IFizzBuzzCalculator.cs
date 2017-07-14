@@ -1,7 +1,7 @@
 ﻿namespace FizzBuzz.Calculator
 {
-    internal interface IFizzBuzzCalculator
+    public interface IFizzBuzzCalculator
     {
-        bool IsFactor(int value, int factor);
+        string Calculate(int number);
     }
 }

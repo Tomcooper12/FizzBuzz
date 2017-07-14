@@ -2,6 +2,7 @@
 
 namespace FizzBuzz.Tests
 {
+    using FizzBuzz.Output;
     using Xunit;
     public class FizzBuzzCalculatorTests
     {
@@ -10,14 +11,13 @@ namespace FizzBuzz.Tests
         {
             //arrange
             int value = 27;
-            int factor = 3;
             var calculator = new FizzBuzzCalculator();
 
             //act
-            bool isFactor = calculator.IsFactor(value, factor);
+            string isFactor = calculator.Calculate(value);
 
             //assert
-            Assert.True(isFactor);
+            Assert.Equal("Fizz", isFactor);
         }
 
         [Fact]
@@ -25,14 +25,36 @@ namespace FizzBuzz.Tests
         {
             //arrange
             int value = 25;
-            int factor = 5;
             var calculator = new FizzBuzzCalculator();
 
             //act
-            bool isFactor = calculator.IsFactor(value, factor);
+            string isFactor = calculator.Calculate(value);
 
             //assert
-            Assert.True(isFactor);
+            Assert.Equal("Buzz", isFactor);
+        }
+
+        [Theory]
+        [InlineData(1, "1")]
+        [InlineData(37, "37")]
+        [InlineData(64, "64")]
+        [InlineData(98, "98")]
+        [InlineData(27, "Fizz")]
+        [InlineData(15, "FizzBuzz")]
+        [InlineData(36, "Fizz")]
+        [InlineData(30, "FizzBuzz")]
+        [InlineData(50, "Buzz")]
+        [InlineData(70, "Buzz")]
+        public void Check_FizzBuzz_Result(int value, string expected)
+        {
+            //arrange
+            IFizzBuzzCalculator calculator = new FizzBuzzCalculator();
+
+            //act
+            string response = calculator.Calculate(value);
+
+            //assert
+            Assert.Equal(response, expected);
         }
     }
 }
